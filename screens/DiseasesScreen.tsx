@@ -133,7 +133,7 @@ export const DiseasesScreen: React.FC = () => {
       })),
     } : null;
 
-    const pendingReminders = item.reminders.filter(r => !r.isCompleted).length;
+    const pendingReminders = (item.reminders || []).filter(r => !r.isCompleted).length;
 
     return (
       <TouchableOpacity
@@ -221,7 +221,7 @@ export const DiseasesScreen: React.FC = () => {
         {pendingReminders > 0 && (
           <View style={styles.remindersSection}>
             <Text style={styles.sectionTitle}>待处理提醒</Text>
-            {item.reminders
+            {(item.reminders || [])
               .filter(r => !r.isCompleted)
               .slice(0, 2)
               .map(reminder => (

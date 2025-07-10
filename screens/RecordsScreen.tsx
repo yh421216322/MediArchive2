@@ -50,7 +50,7 @@ export const RecordsScreen: React.FC = () => {
 
   // 筛选病历记录
   const filteredRecords = useMemo(() => {
-    let filtered = medicalRecords;
+    let filtered = medicalRecords || [];
 
     // 搜索筛选
     if (searchText) {

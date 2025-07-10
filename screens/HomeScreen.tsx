@@ -138,7 +138,7 @@ export const HomeScreen: React.FC = () => {
   };
 
   // 只显示未关联慢病的病历
-  const recentRecords = [...medicalRecords]
+  const recentRecords = (medicalRecords || [])
     .filter(r => !r.diseaseId)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
