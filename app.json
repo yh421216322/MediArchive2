@@ -4,7 +4,6 @@
     "slug": "MediArchive",
     "version": "1.0.0",
     "orientation": "portrait",
-
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -22,12 +21,12 @@
       "edgeToEdgeEnabled": true,
       "package": "com.mediarchive.app"
     },
-    "web": {
-    },
+    "web": {},
     "extra": {
       "eas": {
-        "projectId": "mediarchive-app"
+        "projectId": "16238373-b87a-4a9b-83a6-72772544aadf"
       }
-    }
+    },
+    "owner": "421216322"
   }
 }
