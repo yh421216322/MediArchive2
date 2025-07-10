@@ -25,6 +25,14 @@ jobs:
     - name: Install dependencies
       run: npm install --legacy-peer-deps
     
+    - name: Debug token
+      run: |
+        if [ -n "${{ secrets.EXPO_TOKEN }}" ]; then
+          echo "EXPO_TOKEN is set (length: ${#EXPO_TOKEN})"
+        else
+          echo "EXPO_TOKEN is NOT set"
+        fi
+    
     - name: Setup EAS
       uses: expo/expo-github-action@v8
       with:
@@ -32,7 +40,12 @@ jobs:
         token: ${{ secrets.EXPO_TOKEN }}
     
     - name: Build Android APK
-      run: eas build --platform android --profile production --non-interactive
+      run: |
+        if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
+          echo "Error: EXPO_TOKEN is not set"
+          exit 1
+        fi
+        eas build --platform android --profile production --non-interactive
     
     - name: Upload Android APK
       uses: actions/upload-artifact@v4
@@ -67,7 +80,12 @@ jobs:
         token: ${{ secrets.EXPO_TOKEN }}
     
     - name: Build iOS IPA
-      run: eas build --platform ios --profile production --non-interactive
+      run: |
+        if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
+          echo "Error: EXPO_TOKEN is not set"
+          exit 1
+        fi
+        eas build --platform ios --profile production --non-interactive
     
     - name: Upload iOS IPA
       uses: actions/upload-artifact@v4
