@@ -1,0 +1,50 @@
+{
+  "name": "mediarchive",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build:android": "eas build --platform android --profile production",
+    "build:ios": "eas build --platform ios --profile production",
+    "build:web": "npx expo export --platform web",
+    "build:all": "npm run build:android && npm run build:ios && npm run build:web",
+    "deploy": "bash scripts/deploy.sh"
+  },
+  "dependencies": {
+    "@expo/metro-config": "^0.20.15",
+    "@expo/metro-runtime": "~5.0.4",
+    "@expo/vector-icons": "^14.1.0",
+    "@react-native-picker/picker": "^2.11.1",
+    "@react-navigation/bottom-tabs": "^7.4.2",
+    "@react-navigation/native": "^7.1.14",
+    "@react-navigation/stack": "^7.4.2",
+    "axios": "^1.10.0",
+    "expo": "^53.0.13",
+    "expo-image-picker": "^16.1.4",
+    "expo-linear-gradient": "^14.1.5",
+    "expo-sqlite": "^15.2.12",
+    "expo-status-bar": "^2.2.3",
+    "metro": "^0.82.4",
+    "metro-core": "^0.82.4",
+    "metro-runtime": "^0.82.4",
+    "metro-source-map": "^0.82.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.0.0",
+    "react-native": "^0.80.0",
+    "react-native-chart-kit": "^6.12.0",
+    "react-native-gesture-handler": "^2.26.0",
+    "react-native-reanimated": "^3.18.0",
+    "react-native-safe-area-context": "^5.5.0",
+    "react-native-screens": "^4.11.1",
+    "react-native-svg": "^15.12.0",
+    "react-native-uuid": "^2.0.3",
+    "react-native-web": "^0.20.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.0.10",
+    "typescript": "~5.8.3"
+  }
+}
